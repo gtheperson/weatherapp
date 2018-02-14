@@ -8,7 +8,7 @@ if ("geolocation" in navigator) {
 		var myLong = position.coords.longitude;
 		console.log(myLong);
 	})
-	var url = "api.openweathermap.org/data/2.5/weather?q=London&APPID=458a20ca05651bf40589ac03f26998aa";
+	var url = "https://api.darksky.net/forecast/e0caa22f12142e9be69a732f34ec4498/37.8267,-122.4233";
 	console.log(url);
 	var request = new XMLHttpRequest();
 	request.open("GET", url, true);
