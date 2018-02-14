@@ -8,7 +8,7 @@ if ("geolocation" in navigator) {
 		var myLong = position.coords.longitude;
 		console.log(myLong);
 	})
-	var url = "https://www.metaweather.com/api/location/search/?query=london";
+	var url = "api.openweathermap.org/data/2.5/weather?q=London&APPID=458a20ca05651bf40589ac03f26998aa";
 	console.log(url);
 	var request = new XMLHttpRequest();
 	request.open("GET", url, true);
