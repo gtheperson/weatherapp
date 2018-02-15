@@ -2,21 +2,71 @@
 <html>
 <head>
 	<title>Weather</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8">
 </head>
 
 <body>
 
-	<h1>Today's Weather</h1>
+	<div class="town-div">
+		<h2 id="pos">Your nearest city is </h2>
+	</div>
 
-	<p id="pos">Your town is </p>
-	<p id=weather>Your weather is </p>
-	<p id="temp">Your temperature is </p>
-	<p id="wind">Your wind speed is </p>
+	<div class="flex">
+		<div class="loc-div flex">
+			<div class="list">
+				<p id=weather>Today's weather is </p>
+				<p id="temp">Today's temperature is </p>
+				<p id="wind">Today's wind speed is </p>
+			</div>
 
-	<p id="antipos">Your town is </p>
-	<p id="antiweather">Your weather is </p>
-	<p id="antitemp">Your temperature is </p>
-	<p id="antiwind">Your wind speed is </p>
+			<div>
+				<img src="" id="img" class="hid">
+			</div>
+		</div>
+
+		<div class="loc-div flex">
+			<div class="list">
+				<p id=weather2>Tomorrow's weather will be </p>
+				<p id="temp2">Tomorrow's temperature will be </p>
+				<p id="wind2">Tomorrow's wind speed will be </p>
+			</div>
+
+			<div>
+				<img src="" id="img2" class="hid">
+			</div>
+		</div>
+	</div>
+
+	<div class="town-div">
+		<h2 id="antipos">Your nearest antipode city is </h2>
+	</div>
+
+	<div class="flex">
+		<div class="loc-div flex">
+			<div class="list">
+				<p id="antiweather">Today's antipode weather is </p>
+				<p id="antitemp">Today's antipode temperature is </p>
+				<p id="antiwind">Today's antipode wind speed is </p>
+			</div>
+
+			<div>
+				<img src="" id="antiimg" class="hid">
+			</div>
+		</div>
+
+		<div class="loc-div flex">
+			<div class="list">
+				<p id=antiweather2>Tomorrow's weather will be </p>
+				<p id="antitemp2">Tomorrow's temperature will be </p>
+				<p id="antiwind2">Tomorrow's wind speed will be </p>
+			</div>
+
+			<div>
+				<img src="" id="antiimg2" class="hid">
+			</div>
+		</div>
+	</div>
 
 	<a href="https://www.metaweather.com/"><p>Sourced from Meta Weather</p></a>
 

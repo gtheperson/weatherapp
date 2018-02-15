@@ -8,6 +8,7 @@ if ("geolocation" in navigator) {
 		var myLong = position.coords.longitude;
 		console.log(myLong);
 
+		var imgUrl = "https://www.metaweather.com/static/img/weather/";
 		// make an initial api request for the location details using the lat and long
 		var url = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=";
 		var posUrl = url + myLat + "," + myLong;
@@ -33,14 +34,29 @@ if ("geolocation" in navigator) {
 				requestWeather.onload = function() {
 					if (requestWeather.status >= 200 && requestWeather.status < 400) {
 						var dataWeather = JSON.parse(requestWeather.responseText);
+						console.log(dataWeather);
 
 						// set todays weather
 						var myWeather = dataWeather.consolidated_weather[0].weather_state_name;
 						document.getElementById("weather").innerHTML += myWeather;
 						var myTemp = dataWeather.consolidated_weather[0].the_temp;
-						document.getElementById("temp").innerHTML += (myTemp.toFixed(2) + " 'C"); 
+						document.getElementById("temp").innerHTML += (myTemp.toFixed(2) + " °C"); 
 						var myWind = dataWeather.consolidated_weather[0].wind_speed;
-						document.getElementById("wind").innerHTML += (myWind.toFixed(2) + " mph"); 
+						document.getElementById("wind").innerHTML += (myWind.toFixed(2) + " mph");
+						var myImg = dataWeather.consolidated_weather[0].weather_state_abbr;
+						document.getElementById("img").src = imgUrl + myImg + ".svg";
+						document.getElementById("img").classList.remove("hid"); 
+
+						// tomorrow
+						var myWeather2 = dataWeather.consolidated_weather[1].weather_state_name;
+						document.getElementById("weather2").innerHTML += myWeather2;
+						var myTemp2 = dataWeather.consolidated_weather[1].the_temp;
+						document.getElementById("temp2").innerHTML += (myTemp2.toFixed(2) + " °C"); 
+						var myWind2 = dataWeather.consolidated_weather[1].wind_speed;
+						document.getElementById("wind2").innerHTML += (myWind2.toFixed(2) + " mph"); 
+						var myImg2 = dataWeather.consolidated_weather[1].weather_state_abbr;
+						document.getElementById("img2").src = imgUrl + myImg2 + ".svg";
+						document.getElementById("img2").classList.remove("hid"); 
 
 						console.log(myWeather, myTemp, myWind);
 					}// block that parses json weather detais data on success
@@ -80,9 +96,23 @@ if ("geolocation" in navigator) {
 						var antiWeather = dataWeatherAnti.consolidated_weather[0].weather_state_name;
 						document.getElementById("antiweather").innerHTML += antiWeather;
 						var antiTemp = dataWeatherAnti.consolidated_weather[0].the_temp;
-						document.getElementById("antitemp").innerHTML += (antiTemp.toFixed(2) + " 'C"); 
+						document.getElementById("antitemp").innerHTML += (antiTemp.toFixed(2) + " °C"); 
 						var antiWind = dataWeatherAnti.consolidated_weather[0].wind_speed;
 						document.getElementById("antiwind").innerHTML += (antiWind.toFixed(2) + " mph"); 
+						var myImgAnti = dataWeatherAnti.consolidated_weather[0].weather_state_abbr;
+						document.getElementById("antiimg").src = imgUrl + myImgAnti + ".svg";
+						document.getElementById("antiimg").classList.remove("hid"); 
+
+						// tomorrows weather
+						var antiWeather2 = dataWeatherAnti.consolidated_weather[1].weather_state_name;
+						document.getElementById("antiweather2").innerHTML += antiWeather2;
+						var antiTemp2 = dataWeatherAnti.consolidated_weather[1].the_temp;
+						document.getElementById("antitemp2").innerHTML += (antiTemp2.toFixed(2) + " °C"); 
+						var antiWind2 = dataWeatherAnti.consolidated_weather[1].wind_speed;
+						document.getElementById("antiwind2").innerHTML += (antiWind2.toFixed(2) + " mph"); 
+						var myImgAnti2 = dataWeatherAnti.consolidated_weather[1].weather_state_abbr;
+						document.getElementById("antiimg2").src = imgUrl + myImgAnti2 + ".svg";
+						document.getElementById("antiimg2").classList.remove("hid");
 
 						console.log(antiWeather, antiTemp, antiWind);
 					}// block that parses json weather detais data on success
