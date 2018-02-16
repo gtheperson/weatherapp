@@ -4,9 +4,17 @@ if ("geolocation" in navigator) {
 	navigator.geolocation.getCurrentPosition(function(position) {// get position
 		// define the latitude and longitude from the browser position api
 		var myLat = position.coords.latitude;
+		var antiLat = 0 - myLat;
 		console.log(myLat);
+		console.log(antiLat);
 		var myLong = position.coords.longitude;
+		if (myLong > 0) {
+			var antiLong = myLong - 180;
+		} else {
+			var antiLong = myLong + 180;
+		}
 		console.log(myLong);
+		console.log(antiLong);
 
 		var imgUrl = "https://www.metaweather.com/static/img/weather/";
 		// make an initial api request for the location details using the lat and long
@@ -68,7 +76,7 @@ if ("geolocation" in navigator) {
 		request.send();// send request for weather locations
 
 		// get antipodes details
-		var urlAnti = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=" + (0 - myLat) + "," + (myLong - 180);
+		var urlAnti = "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=" + antiLat + "," + antiLong;
 		var requestAnti = new XMLHttpRequest();
 		requestAnti.open("GET", urlAnti, true);
 		requestAnti.onload = function() {
