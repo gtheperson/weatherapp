@@ -47,12 +47,12 @@ img {
 	width: 300px;
 }
 
-@media only screen and (max-width : 900px) {
+@media only screen and (max-width : 720px) {
 	h2 {
 		text-align: left;
 		font-family: 14px;
 	}
 	.loc-div {
-		width: 600px;
+		width: 700px;
 	}
 }
