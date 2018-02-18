@@ -12,29 +12,29 @@ p {
 }
 img {
 	z-index: 1000;
-	width: 100%;
+	width: 120px;
 	height: 80px;
 	background-color: white;
 	border-radius: 25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	margin-left: 20px;
 }
 .town-div {
 	margin: auto;
-	width: 70%;
+	width: 700px;
 }
 .flex {
 	display: flex;
+	flex-wrap: wrap;
 }
 .loc-div {
 	margin: auto;
-	width: 42%;
+	width: 450px;
 	background-color: #92db9e; 
 	border-radius: 20px;
 	padding:20px;
-}
-.list {
-	width: 70%;
+	margin-bottom: 20px;
 }
 .hid {
 	visibility: hidden;
@@ -42,4 +42,14 @@ img {
 .source {
 	margin-top: 50px;
 	font-size: 10px;
+}
+.list {
+	width: 300px;
+}
+
+@media screen and (max-width:720px) {
+	h2 {
+		text-align: left;
+		font-family: 14px;
+	}
 }
